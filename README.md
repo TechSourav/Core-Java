@@ -1,2 +1,3 @@
 # Core-Java
-This is a repo for core java coding
+Please read this document before any coding..
+
