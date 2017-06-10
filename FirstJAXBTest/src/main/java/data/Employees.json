@@ -1,0 +1,26 @@
+{
+    "total": 3,
+    "result": [
+        {
+            "id": 25,
+            "name": "Carly Gonzales",
+            "age": 55,
+            "salary":200000,
+            "doj": "03/05/2005"
+        },
+        {
+            "id": 2,
+            "name": "Taylor Moon",
+            "age": 54,
+            "salary":1800000,
+            "doj": "05/25/2000"
+        },
+        {
+            "id": 3,
+            "name": "Lynda Bird",
+            "age": 58,
+            "salary":2500000,
+            "doj": "09/28/1990"
+        }
+    ]
+}

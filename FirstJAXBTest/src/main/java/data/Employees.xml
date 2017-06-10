@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<employees>
+    <employee id="25">
+        <name>Carly Gonzales</name>
+        <age>55</age>
+        <doj>2005-03-05T00:00:00+05:30</doj>
+        <salary>200000.0</salary>
+    </employee>
+    <employee id="2">
+        <name>Taylor Moon</name>
+        <age>54</age>
+        <doj>2000-05-25T00:00:00+05:30</doj>
+        <salary>1800000.0</salary>
+    </employee>
+    <employee id="3">
+        <name>Lynda Bird</name>
+        <age>58</age>
+        <doj>1990-09-28T00:00:00+05:30</doj>
+        <salary>2500000.0</salary>
+    </employee>
+</employees>
