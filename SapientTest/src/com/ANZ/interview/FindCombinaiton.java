@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class FindCombinaiton {
 
 	public static void main(String[] args) {
-		ArrayList<String> outputList =   findCombinations("abc");
+		ArrayList<String> outputList =   findCombinations("abcd");
 		System.out.println(outputList);
 
 	}
