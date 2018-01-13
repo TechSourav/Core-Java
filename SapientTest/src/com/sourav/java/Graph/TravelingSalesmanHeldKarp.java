@@ -45,7 +45,7 @@ public class TravelingSalesmanHeldKarp {
         public int hashCode() {
             int result = currentVertex;
             result = 31 * result + (vertexSet != null ? vertexSet.hashCode() : 0);
-            return result;
+            return result;	
         }
 
         private static Index createIndex(int vertex, Set<Integer> vertexSet) {

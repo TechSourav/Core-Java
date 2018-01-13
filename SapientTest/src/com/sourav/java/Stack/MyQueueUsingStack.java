@@ -10,9 +10,17 @@ public class MyQueueUsingStack {
 		queue.enQueue(50);
 		System.out.println("..... Before Removal .....");
 		queue.display1();
-		int item=queue.deQueue();
-		System.out.println("..... After Removal ....."+ item + " has been removed.");
-		queue.display2();
+		queue.deQueue();
+		queue.enQueue(60);
+		queue.enQueue(70);
+		queue.enQueue(80);
+		System.out.println("..... Before Removal .....");
+		queue.display1();
+		queue.deQueue();
+		queue.deQueue();
+		System.out.println("..... Final stack .....");
+		queue.display1();
+		
 	}
 
 }
@@ -21,19 +29,22 @@ class QueueUsingStack extends StackUsingList{
 	
 	StackUsingList stack1 = new StackUsingList();
 	StackUsingList stack2 = new StackUsingList();
-	int size;
+	//int size;
 
 	  public void enQueue(int val){
 		stack1.push(val);  
-		size++;
+		//size++;
 	  }
 	  public int deQueue(){
-		  if(stack2.isEmpty() && !stack1.isEmpty()){
-			  for(int i=0;i<size;i++){
-				  stack2.push(stack1.pop());
-			  }
+		  while(!stack1.isEmpty()){
+			  stack2.push(stack1.pop());
 		  }
 		  int data=stack2.pop();
+		  System.out.println("..... After Removal ....."+ data + " has been removed.");
+		  display2();
+		  while(!stack2.isEmpty()){
+			  stack1.push(stack2.pop());
+		  }
 		  return data;
 	  }
 	  public void display1(){
@@ -98,6 +109,10 @@ class StackUsingList{
 			return true;
 		}else
 			return false;
+	}
+	
+	public int size(){
+		return size;
 	}
 	
 	public void display(){

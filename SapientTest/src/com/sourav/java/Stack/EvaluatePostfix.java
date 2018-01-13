@@ -11,7 +11,6 @@ public class EvaluatePostfix {
 	
 	static int evaluatePostfix(String exp) {
 		Stack<Integer> s = new Stack<>();
-		int result=0;
 		for(int i=0;i<exp.length();i++) {
 			char c= exp.charAt(i);
 			if(Character.isDigit(c)) {

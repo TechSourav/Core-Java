@@ -12,6 +12,9 @@ public class HeapSort {
 		System.out.println("before Sort: " + Arrays.toString(arr));
 		heap.sort(arr);
 		System.out.println("After sort: " + Arrays.toString(arr));
+		
+		System.out.println("Insert key into heap");
+		heap.insertKey(8);
 	}
 
 	private void sort(int[] arr) {
@@ -26,6 +29,10 @@ public class HeapSort {
 			heapify(arr, j, 0);
 		}
 		System.out.println("After Heapify: " + Arrays.toString(arr));
+	}
+	
+	private void insertKey(int key) {
+		
 	}
 
 	private void buildMaxHeap(int[] arr) {
