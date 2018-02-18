@@ -5,18 +5,19 @@ import java.util.Arrays;
 public class TestQuickSort {
 	
 	public static void main(String[] args){
-		int[] arr ={10,15,50,40,35,-9,-2,0};
+		//int[] arr ={10,15,50,40,35,-9,-2,0};
+		int[] arr ={2,10,8,4,3,6,5,7};
 		System.out.println("Unsorted Array::");
 		printArray(arr);
 		sortArray(arr, 0,arr.length-1);
 		System.out.println("Sorted Array::");
 		printArray(arr);
 	}
-	private static void printArray(int[] arr){
+	public static void printArray(int[] arr){
 		System.out.println(Arrays.toString(arr));
 	}
 	
-	private static void sortArray(int[] arr, int low, int high)
+	public static void sortArray(int[] arr, int low, int high)
 	{
 		if(low<high){
 			int pos= partition(arr, low, high);

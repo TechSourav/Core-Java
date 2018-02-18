@@ -21,6 +21,7 @@ public class HeapSort {
 		System.out.println("Before Heapify: " + Arrays.toString(arr));
 		// 1. build max heap
 		buildMaxHeap(arr);
+		System.out.println("After BuildHeap: " + Arrays.toString(arr));
 		// 2. exchange and recursively call heapify
 		for (int j = arr.length - 1; j >= 0; j--) {
 			int swap = arr[j];
