@@ -54,8 +54,11 @@ public class CalculationServiceSupplier {
 	
 	private void taskCalculateExpressions(List<String> tasks, int x, int y) {
 		CalculationService calc= new CalculationService();
+		
 		ExecutorService ex= Executors.newFixedThreadPool(3);
+		
 		List<CompletableFuture<Integer>> results= tasks.stream().map((task)->CompletableFuture.supplyAsync(()-> calc.execute(task,x,y),ex)).collect(Collectors.toList()); 
+		
 		CompletableFuture<List<Integer>> lst=CompletableFuture.allOf(results.toArray(new CompletableFuture[results.size()])).thenApply((result) ->  results.stream()
 																													  .map(CompletableFuture::join)
 																													  .collect(Collectors.toList()));

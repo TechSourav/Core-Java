@@ -19,7 +19,7 @@ public class KruskalAlgo {
 	private void kruskalMst(int[][] cost) {
 		PriorityQueue<Integer> q=new PriorityQueue<>((x,y)-> (x-y));
 		for(int i=0;i<Integer.MAX_VALUE; i++) {
-			q.
+			
 		}
 	}
 
