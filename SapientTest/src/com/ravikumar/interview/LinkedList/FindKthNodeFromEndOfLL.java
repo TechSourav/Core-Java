@@ -1,6 +1,7 @@
 package com.ravikumar.interview.LinkedList;
 
-import com.sun.istack.internal.logging.Logger;
+import java.util.HashSet;
+import java.util.Set;
 
 public class FindKthNodeFromEndOfLL {
 
@@ -22,7 +23,33 @@ public class FindKthNodeFromEndOfLL {
 		root=mll.addNodeAtEnd(root, 32);
 		root=mll.addNodeAtEnd(root, 34);
 		root=mll.addNodeAtEnd(root, 36);
-		System.out.println(findKthNodeFromEnd(root, 5));
+		createLoop(root);
+		
+		//System.out.println(findKthNodeFromEnd(root, 5));
+		System.out.println(detectLoop(root)? "Loop Found": "Loop not found");
+	}
+	
+	private static void createLoop(ListNode root){
+		ListNode temp= root;
+		while(temp.next!=null){
+			temp=temp.next;
+		}
+		temp.next=root.next.next.next.next.next.next;
+	}
+	
+	private static boolean detectLoop(ListNode node){
+		Set<ListNode> set = new HashSet<>();
+		ListNode temp=node;
+		while(temp!=null){
+			if(set.contains(temp)){
+				return true;
+			}else{
+				set.add(temp);
+				temp=temp.next;
+			}
+			
+		}
+		return false;
 	}
 	
 	private static int findKthNodeFromEnd(ListNode node, int k){

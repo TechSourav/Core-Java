@@ -273,6 +273,8 @@ public class BinaryTreeProgram {
 class BTree {
 
 	private int data;
+	private int hd;
+	
 	private BTree left;
 	private BTree right;
 
@@ -281,10 +283,19 @@ class BTree {
 
 	BTree(int data) {
 		this.data = data;
+		this.hd=Integer.MAX_VALUE;
 		this.left = null;
 		this.right = null;
 	}
 
+	public int getHd() {
+		return hd;
+	}
+
+	public void setHd(int hd) {
+		this.hd = hd;
+	}
+	
 	public int getData() {
 		return data;
 	}
