@@ -7,7 +7,7 @@ import java.util.Queue;
 public class TopologicalSort {
 
 	public static void main(String[] args) {
-		Graph g = new Graph(6);
+		GraphAdjacencyList g = new GraphAdjacencyList(6);
 		g.addEdge(5, 2);
 		g.addEdge(5, 0);
 		g.addEdge(4, 0);
@@ -19,7 +19,7 @@ public class TopologicalSort {
 		s.topologicalSort(g);
 	}
 	
-	private void topologicalSort(Graph g) {
+	private void topologicalSort(GraphAdjacencyList g) {
 		int[] arrIndegree=new int[g.V];
 		for(int i=0; i<g.V;i++) {
 			Iterator<Integer> it = g.adj[i].listIterator();
