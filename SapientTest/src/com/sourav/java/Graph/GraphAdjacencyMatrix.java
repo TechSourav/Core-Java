@@ -3,14 +3,14 @@ package com.sourav.java.Graph;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Graph2 {
+public class GraphAdjacencyMatrix {
 	
 	int maxVertices= 20;
 	boolean visited[]= new boolean[maxVertices];
 	int adj[][];
 	//int verticesList[]= new int[maxVertices];
 
-	Graph2() {
+	GraphAdjacencyMatrix() {
 		adj = new int[maxVertices][maxVertices];
 		
 		for(int i=0;i<maxVertices;i++) {
@@ -34,7 +34,7 @@ public class Graph2 {
 		return -1;
 	}
 	
-	public void BFS(Graph2 g, int x) {
+	public void BFS(GraphAdjacencyMatrix g, int x) {
 		Queue<Integer> q = new LinkedList<>();
 		q.offer(x);
 		visited[x]=true;
@@ -50,7 +50,7 @@ public class Graph2 {
 	}
 	
 	public static void main(String[] args) {
-		Graph2 g1 = new Graph2();
+		GraphAdjacencyMatrix g1 = new GraphAdjacencyMatrix();
 		g1.addEdge(0, 1);
 		g1.addEdge(0, 2);
 		g1.addEdge(1, 2);

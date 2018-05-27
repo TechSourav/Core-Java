@@ -4,12 +4,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Stack;
 
-public class Graph {
+public class GraphAdjacencyList {
 	
 	public int V;
 	public LinkedList<Integer> adj[];
 	
-	Graph(int v){
+	GraphAdjacencyList(int v){
 		V=v;
 		adj=new LinkedList[v];
 		for(int i=0;i<v;i++) {
@@ -64,7 +64,7 @@ public class Graph {
 	}
 
 	public static void main(String[] args) {
-		Graph g1 = new Graph(4);
+		GraphAdjacencyList g1 = new GraphAdjacencyList(4);
 		g1.addEdge(0, 1);
 		g1.addEdge(0, 2);
 		g1.addEdge(1, 2);
@@ -79,7 +79,7 @@ public class Graph {
 		System.out.println("");
 		System.out.println("*****************************************************************************************");
 		
-		Graph g2 = new Graph(5);
+		GraphAdjacencyList g2 = new GraphAdjacencyList(5);
 		g2.addEdge(1, 0);
         g2.addEdge(0, 2);
         g2.addEdge(2, 1);

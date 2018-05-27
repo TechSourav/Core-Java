@@ -44,7 +44,7 @@ public class TestHashMap {
 		 * Map.Entry<String, Integer> o2 ) { return (o2.getValue()).compareTo(
 		 * o1.getValue() ); } } );
 		 */
-		Comparator<Map.Entry<String, Integer>> com = Comparator.comparing(Map.Entry<String, Integer>::getValue);
+		Comparator<Map.Entry<String, Integer>> com = Comparator.comparing(Map.Entry<String, Integer>::getValue).reversed();
 		Collections.sort(list, com);
 		LinkedHashMap<String,Integer> lhm = new LinkedHashMap<String,Integer>();
 		for(Map.Entry<String, Integer> m : list){
