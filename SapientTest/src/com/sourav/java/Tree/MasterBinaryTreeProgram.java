@@ -9,10 +9,14 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
 import java.util.TreeMap;
+import java.util.Map.Entry;
 
 public class MasterBinaryTreeProgram {
+	
+	static int max_level=0;
+	
 	public static void main(String[] args) {
-
+		
 		BTree tree = new BTree(20);
 		tree.setLeft(new BTree(10));
 		tree.setRight(new BTree(30));
@@ -24,12 +28,25 @@ public class MasterBinaryTreeProgram {
 		MasterBinaryTreeProgram test = new MasterBinaryTreeProgram();
 
 		System.out.println(test.findMaxSumAtLevel(tree));
+		
+		System.out.println("Find max path sum in agiven tree");
+		test.findMaxSum(tree);
+		System.out.println();
 
 		System.out.println("Print vertical sum : ");
 		test.verticalSum(tree);
+		System.out.println();
 
-		System.out.println("Pring all posible paths : ");
+		System.out.println("Side view of binary tree.....");
+		test.printLeftView(tree);
+		System.out.println();
+		
+		System.out.println("Print all posible paths : ");
 		test.printPaths(tree);
+		System.out.println();
+		
+		System.out.println("Print nodes at a distance K: ");
+		test.printNodesKDistance(tree,2);
 
 		System.out.println("....Binary tree Depth...." + test.heightOfBinaryTree(tree));
 
@@ -42,6 +59,8 @@ public class MasterBinaryTreeProgram {
 		test.printPreorderBinaryTreeRecursively(tree);
 		System.out.println("....Binary tree Postorder....");
 		test.printPostorderBinaryTreeRecursively(tree);
+		System.out.println("....Binary tree Vertical order traversal....");
+		test.printVerticalOrderTraversal(tree);
 
 		System.out.println("....Binary tree Inorder Without Recursion....");
 		test.printInorderBinaryTreeWithoutRecursion(tree);
@@ -416,10 +435,28 @@ public class MasterBinaryTreeProgram {
 		}
 
 	}
+	
+	private void printPathsWithGivenSum(BTree root, int[] path, int pathLen, int sum) {
+		if (root == null)
+			return;
+		path[pathLen++] = root.getData();
+		sum=sum-root.getData();
+		if (sum==0) {
+			printArray(path, pathLen);
+			System.out.println();
+		} else {
+			printPathsWithGivenSum(root.getLeft(), path, pathLen,sum);
+			printPathsWithGivenSum(root.getRight(), path, pathLen,sum);
+		}
+
+	}
 
 	private void printPaths(BTree root) {
 		int[] path = new int[256];
 		printPaths(root, path, 0);
+		System.out.println("Print root to leaf path with a given sum...");
+		printPathsWithGivenSum(root, path, 0,100);
+		
 	}
 
 	private void printArray(int[] arr, int len) {
@@ -477,7 +514,68 @@ public class MasterBinaryTreeProgram {
 			sum = 0;
 		}
 	}
+	
+	private void  printNodesKDistance(BTree root, int k){
+		
+		// for solution please see NodesAtKDistance.java
+		
+	}
+	private void printLeftView(BTree root){
+		leftViewUtil(root, 1);
+	}
+	
+	private void printVerticalOrderTraversal(BTree root){
+	
+	}
+	
+	private void leftViewUtil(BTree node, int level)
+    {
+        // Base Case
+        if (node==null) return;
+ 
+        // If this is the first node of its level
+        if (max_level < level)
+        {
+            System.out.print(" " + node.getData());
+            max_level = level;
+        }
+ 
+        // Recur for left and right subtrees
+        leftViewUtil(node.getLeft(), level+1);
+        leftViewUtil(node.getRight(), level+1);
+    }
+	
+	private void findMaxSum(BTree root){
+		Result res = new Result();
+		res.val=Integer.MIN_VALUE;
+		findMaxUtil(root,res);
+		System.out.println(res.val);
+	}
+	
+	private int findMaxUtil(BTree root, Result res) {
 
+		if (root == null) {
+			return 0;
+		}
+
+		int l = findMaxUtil(root.getLeft(), res);
+		int r = findMaxUtil(root.getLeft(), res);
+
+		int max_single = Math.max(Math.max(l, r) + root.getData(), root.getData());
+
+		int max_top = Math.max(max_single, (l + r + root.getData()));
+
+		res.val = Math.max(max_top, res.val);
+
+		return max_single;
+	}
+	
+	
+
+}
+
+class Result{
+	int val;
 }
 
 class BTree {

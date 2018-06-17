@@ -3,6 +3,15 @@ package com.sourav.java.Queue;
 import java.util.Deque;
 import java.util.LinkedList;
 
+/**
+ * Given an array and an integer k, find the maximum for each and every contiguous subarray of size k
+ * 
+ * Link : https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/
+ * 
+ **/
+
+
+
 public class SlidingWindow 
 {
      
