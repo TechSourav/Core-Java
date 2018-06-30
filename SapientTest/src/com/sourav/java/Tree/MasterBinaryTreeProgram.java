@@ -14,6 +14,7 @@ import java.util.Map.Entry;
 public class MasterBinaryTreeProgram {
 	
 	static int max_level=0;
+	static int count=0;
 	
 	public static void main(String[] args) {
 		
@@ -26,6 +27,12 @@ public class MasterBinaryTreeProgram {
 		tree.getRight().setRight(new BTree(50));
 
 		MasterBinaryTreeProgram test = new MasterBinaryTreeProgram();
+		
+		System.out.println("Size of binary tree: "+ findSize(tree));
+		if(test.searchElement(tree,15))
+			System.out.println("Elelemt found");
+		else
+			System.out.println("Element not found");
 
 		System.out.println(test.findMaxSumAtLevel(tree));
 		
@@ -79,6 +86,28 @@ public class MasterBinaryTreeProgram {
 		System.out.println("Max Element using iterative approach: " + test.maxInBTreeLevelOrder(tree));
 		System.out.println("Depth of the tree: " + test.minDepth(tree));
 
+	}
+	
+	private static int findSize(BTree root){
+		if(root==null)
+			return 0;
+		else{
+			count++;
+			findSize(root.getLeft());
+			findSize(root.getRight());
+			return count;
+		}
+	}
+	
+	private boolean searchElement(BTree root, int k){
+		if(root!=null){
+			if(root.getData()==k)
+				return true;
+			else{
+				return searchElement(root.getLeft(),k) || searchElement(root.getRight(),k);
+			}
+		}
+		return false;
 	}
 
 	private int findMaxElement(BTree tree) {

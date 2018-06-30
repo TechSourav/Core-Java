@@ -54,7 +54,8 @@ public class MaxSumPathBetweenLeaves {
 
 		MaxSumPathBetweenLeaves leaves = new MaxSumPathBetweenLeaves();
 		System.out.println("Max pathSum of the given binary tree is " + leaves.maxPathSum(tree));
-		System.out.println("\nMax sum root to leaf: "+leaves.maxPathSumFromRootToLeaf(tree));
+		System.out.println("\nMax sum root to leaf: ");
+		System.out.println("\n"+leaves.maxPathSumFromRootToLeaf(tree));
 
 	}
 
@@ -91,7 +92,8 @@ public class MaxSumPathBetweenLeaves {
 	// The main function which returns sum of the maximum
 	// sum path between two leaves. This function mainly
 	// uses maxPathSumUtil()
-	int maxPathSum(BTree root) {
+	
+	private int maxPathSum(BTree root) {
 		Res res = new Res();
 		res.val = Integer.MIN_VALUE;
 		maxPathSumUtil(root, res);
@@ -132,7 +134,7 @@ public class MaxSumPathBetweenLeaves {
 			return false;
 		if(root.getData()==target.getData() || printPathToTarget(root.getLeft(), target)
                 || printPathToTarget(root.getRight(), target)){
-			 System.out.print(root.getData() + " ");
+			 System.out.print(root.getData() + ",");
 	         return true;
 		}
 		return false;

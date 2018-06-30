@@ -68,6 +68,11 @@ public class Petrol
                             new petrolPump(4, 5)};
          
         int start = printTour(arr, arr.length);
+        
+        String s1= new String("abz");
+        String s2= "abz";
+        String s3= "abz";
+        System.out.println(s3==s2);
          
         System.out.println(start == -1 ? "No Solution" : "Start = " + start); 
  
